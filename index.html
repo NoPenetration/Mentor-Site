@@ -2,10 +2,12 @@
 <html lang="PL">
 
     <head>
-      <meta charset="UTF-8">
+        
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<link rel="icon" type="image/gif" href="images/mentor.gif" />
+        
         <script>
             
 				window.smoothScroll = function(target) {
@@ -35,6 +37,61 @@
                     console.log(description);
                     document.getElementById(functionTarget).innerHTML = description;
                 }
+            
+            var responsiveSlider = function() {
+              var slider = document.getElementById("slider");
+              var sliderWidth = slider.offsetWidth;
+              var slideList = document.getElementById("slideWrap");
+              var count = 1;
+              var items = slideList.querySelectorAll("li").length;
+              var prev = document.getElementById("prev");
+              var next = document.getElementById("next");
+
+              window.addEventListener('resize', function() {
+                sliderWidth = slider.offsetWidth;
+              });
+
+              var prevSlide = function() {
+                if(count > 1) {
+                  count = count - 2;
+                  slideList.style.left = "-" + count * sliderWidth + "px";
+                  count++;
+                }
+                else if(count = 1) {
+                  count = items - 1;
+                  slideList.style.left = "-" + count * sliderWidth + "px";
+                  count++;
+                }
+              };
+
+              var nextSlide = function() {
+                if(count < items) {
+                  slideList.style.left = "-" + count * sliderWidth + "px";
+                  count++;
+                }
+                else if(count = items) {
+                  slideList.style.left = "0px";
+                  count = 1;
+                }
+              };
+
+              next.addEventListener("click", function() {
+                nextSlide();
+              });
+
+              prev.addEventListener("click", function() {
+                prevSlide();
+              });
+                
+              setInterval(function() {
+                nextSlide()
+              }, 8000);
+            };
+
+            window.onload = function() {
+              responsiveSlider();  
+            }
+
 		</script>
 
     </head>
@@ -42,6 +99,18 @@
     <body>
         
         <div class="landing">
+            <div class="container">
+                <button id="starting-button" onclick="smoothScroll(document.getElementById('p0'))">
+                    <img src="images/mentor.png" 
+                                 alt="Just our logo"
+                                 class="u-max-full-width image-top" >
+                </button>
+                            
+            </div>
+        </div>
+        
+        
+        <div class="landing" id="p0">
             <div class="container">
                 <div class="row">
 
@@ -67,7 +136,7 @@
 
                     <div class="three columns disp">
                         <div class="disp-center">
-                            <button id="bD" onclick="smoothScroll(document.getElementById('p3'))">Aktualności</button>
+                            <button id="bD" onclick="smoothScroll(document.getElementById('p4'))">Aktualności</button>
                         </div>
                     </div>
                 </div>
@@ -77,7 +146,7 @@
         
         <div id="p1" class="first-page">
             
-            <div class="container center">
+            <div class="container center container-margin">
                 
                 <div class="row">
                     <div class="twelve columns div-background padd">
@@ -132,7 +201,7 @@
                         <img alt="Sabina Golonka" 
                              src="images/kowalski.png" 
                              class="u-max-full-width"
-                             onmouseover="hover('Studentka 3 roku Informatykii i ekonometrii. Pasjonatka podróży, informatyki i zarządzania.<br/> W zarządzie pełni rolę prezesa skupiając się na koordynowaniu projektów.', 'sg')"
+                             onmouseover="hover('Studentka III roku Informatykii i ekonometrii. Pasjonatka podróży, informatyki i zarządzania.<br/> W zarządzie pełni rolę prezesa skupiając się na koordynowaniu projektów.', 'sg')"
                              onmouseout="hover('Sabina Golonka', 'sg')">
                     </div>
                     
@@ -147,7 +216,7 @@
                         <img alt="Monika Wielgus" 
                              src="images/private.png" 
                              class="u-max-full-width"
-                             onmouseover="hover('Studentka 3 roku Informatykii i ekonometrii. Pasjonatka podróży, informatyki i zarządzania.<br/> W zarządzie pełni rolę prezesa skupiając się na koordynowaniu projektów.', 'mw')"
+                             onmouseover="hover('Studentka V roku Informatyki i Ekonometrii pasjonująca się programowaniem, szczególnie w C#. Ponadto wielbicielka tańca, meczy piłki nożnej oraz dźwięku skrzypiec.', 'mw')"
                              onmouseout="hover('Monika Wielgus', 'mw')">
                     </div>
                     
@@ -158,7 +227,7 @@
                         <img alt="Piotr Gretszel" 
                              src="images/ricko.png" 
                              class="u-max-full-width"
-                             onmouseover="hover('Studentka 3 roku Informatykii i ekonometrii. Pasjonatka podróży, informatyki i zarządzania.<br/> W zarządzie pełni rolę prezesa skupiając się na koordynowaniu projektów.', 'pg')"
+                             onmouseover="hover('Student III roku Informatyki i Ekonometrii. Interesuje się analizą danych i zagadnieniami ekonometrycznymi. W dziedzinie informatyki związany z środowiskiem .NET, językiem C# i technikami webowymi. Prywatnie miłośnik aktwyności sportowej, muzyki i poznawania świata. Jego rola w zarządzie to wspomaganie podejmowania decyzji i służenie dobrą radą.', 'pg')"
                              onmouseout="hover('Piotr Gretszel', 'pg')">
                     </div>
                     <div class="four columns second-row-height disp" id="pg">
@@ -171,7 +240,7 @@
                         <img alt="Krzysztof Nowicki" 
                              src="images/king.png" 
                              class="u-max-full-width"
-                             onmouseover="hover('Studentka 3 roku Informatykii i ekonometrii. Pasjonatka podróży, informatyki i zarządzania.<br/> W zarządzie pełni rolę prezesa skupiając się na koordynowaniu projektów.', 'kn')"
+                             onmouseover="hover('Tutaj znajdzie się opis jeśli kandydat zostanie zaakceptowany.', 'kn')"
                              onmouseout="hover('Krzysztof Nowicki', 'kn')">
                     </div>
                     
@@ -183,7 +252,7 @@
                         <img alt="Tomasz Wieroński" 
                              src="images/moris.png" 
                              class="u-max-full-width" 
-                             onmouseover="hover('Studentka 3 roku Informatykii i ekonometrii. Pasjonatka podróży, informatyki i zarządzania.<br/> W zarządzie pełni rolę prezesa skupiając się na koordynowaniu projektów.', 'tw')"
+                             onmouseover="hover('Tutaj znajdzie się opis jeśli kandydat zostanie zaakceptowany.', 'tw')"
                              onmouseout="hover('Tomasz Wieroński', 'tw')">
                     </div>
                     
@@ -195,9 +264,26 @@
         </div>
         
         
-        <div id="p3" class="third-page ">
+        <div id="p3" class="third-page">
             <div class="div-background">
                 Tu będzie formularz :)
+            </div>
+        </div>
+        
+        
+        <div id="p4" class="fourth-page disp-column">
+            
+            <div class="div-background " id="slider">
+                <ul id="slideWrap"> 
+                    <li id="new-first">1</li>
+                    <li id="new-second">2</li>
+                    <li id="new-third">3</li>
+                </ul>
+            </div> 
+            
+            <div class="container margin-bottom">                   
+                <button id="prev"><i  class="demo-icon icon-left-dir">&#xe800;</i></button>
+                <button id="next"><i class="demo-icon icon-right-dir">&#xe801;</i></button>
             </div>
         </div>
         
@@ -235,10 +321,10 @@
                     </div>
                     <div class="one-third column">
                         <div class="row ">
-                            <a href="https://www.facebook.com/KNMentor/" target="_blank" class="icon-link fb"><i class="demo-icon icon-facebook">&#xf30c;</i></a>
+                            <a href="https://www.facebook.com/KNMentor/" target="_blank" class="icon-link fb"><i class="demo-icon icon-facebook">&#xf09a;</i></a>
                         </div>
                         <div class="row">
-                            <a href="https://www.dropbox.com/" target="_blank" class="icon-link db"><i class="demo-icon icon-cloud">&#xe805;</i></a>
+                            <a href="https://www.dropbox.com/" target="_blank" class="icon-link db"><i class="demo-icon icon-dropbox">&#xf16b;</i></a>
                         </div>
                         <div class="row">
                             <a href="https://github.com/" target="_blank" class="icon-link gh"><i class="demo-icon icon-github-circled-alt2">&#xf056;</i></a>
@@ -255,5 +341,6 @@
         </div>
         
     </body>
+    
 </html>
     
