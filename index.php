@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once 'database.php';
+
+$usersQuery = $db->query('SELECT * FROM news');
+$users = $usersQuery->fetchAll();
+
+?>
 <!DOCTYPE html>
 <html lang="PL">
 
@@ -7,6 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<link rel="icon" type="image/gif" href="images/mentor.gif" />
+        <title>Mentor</title>
         
         <script>
             
@@ -129,14 +138,14 @@
 
                     <div class="three columns disp">
                         <div class="disp-center">
-                            <button id="bC" onclick="smoothScroll(document.getElementById('p3'))">Kontakt</button>
+                            <button id="bC" onclick="smoothScroll(document.getElementById('p3'))">Aktualności</button>
                         </div>
                     </div>
                     
 
                     <div class="three columns disp">
                         <div class="disp-center">
-                            <button id="bD" onclick="smoothScroll(document.getElementById('p4'))">Aktualności</button>
+                            <button id="bD" onclick="smoothScroll(document.getElementById('p4'))">Kontakt</button>
                         </div>
                     </div>
                 </div>
@@ -176,7 +185,7 @@
         </div>
         
         
-        <div id="p2"class="second-page">
+        <div id="p2" class="second-page">
             <div class="container">
                 <div class="row disp ">
                     <div class="twelve columns padd-header ">
@@ -264,20 +273,20 @@
         </div>
         
         
-        <div id="p3" class="third-page">
-            <div class="div-background">
-                Tu będzie formularz :)
-            </div>
-        </div>
-        
-        
-        <div id="p4" class="fourth-page disp-column">
+        <div id="p3" class="third-page disp-column">
             
             <div class="div-background " id="slider">
                 <ul id="slideWrap"> 
-                    <li id="new-first">1</li>
-                    <li id="new-second">2</li>
-                    <li id="new-third">3</li>
+                    <?php
+						foreach ($users as $user) {
+							echo "
+                            
+                            <li>
+                                <p>{$user['content']}</p>
+                                <p>{$user['date']}</p>
+                            </li>";
+						}
+						?>
                 </ul>
             </div> 
             
@@ -288,14 +297,14 @@
         </div>
         
         
-        <div class="last-page">
+        <div id="p4" class="last-page">
             <div class="container" id="last-container">
                 <div class="row  disp">
                     <div class="one-third column">
                         <div class="row ">
                             <img src="images/mentor.png" 
                                  alt="Just our logo"
-                                 class="u-max-full-width image-foot" >
+                dd                 class="u-max-full-width image-foot" >
                         </div>
                         <div class="row">
                             <img src="images/agh.png" 
@@ -316,7 +325,8 @@
 								ul. Gramatyka 10<br/>
 								30-067 Kraków<br/>
 								NIP AGH: 6750001923<br/>
-								kolo.mentor@gmail.com
+								kolo.mentor@gmail.com<br/>
+                            <a href="mailto:kolo.mentor@gmail.com" class="icon-link"><i class="demo-icon icon-gmail">&#xe803;</i></a>
                         </div>
                     </div>
                     <div class="one-third column">

@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Jura:300,400,600&subset=latin-ext');
+
 @font-face {
       font-family: 'fontello';
-      src: url('./font/fontello.eot?59169745');
-      src: url('./font/fontello.eot?59169745#iefix') format('embedded-opentype'),
-           url('./font/fontello.woff?59169745') format('woff'),
-           url('./font/fontello.ttf?59169745') format('truetype'),
-           url('./font/fontello.svg?59169745#fontello') format('svg');
+      src: url('./font/fontello.eot?85955927');
+      src: url('./font/fontello.eot?85955927#iefix') format('embedded-opentype'),
+           url('./font/fontello.woff?85955927') format('woff'),
+           url('./font/fontello.ttf?85955927') format('truetype'),
+           url('./font/fontello.svg?85955927#fontello') format('svg');
       font-weight: normal;
       font-style: normal;
     }
-.demo-icon {
+     
+     
+    .demo-icon
+    {
       font-family: "fontello";
       font-style: normal;
       font-weight: normal;
@@ -43,6 +47,7 @@
       /* Uncomment for 3D effect */
       /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
     }
+
 
 /*---------*/
 
@@ -79,7 +84,7 @@ button {
 .landing,
 .second-page,
 .last-page,
-.fourth-page  {
+.third-page  {
     background: url(images/landing.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -115,8 +120,7 @@ button {
     align-items: center;
 }
 
-.first-page,
-.third-page{
+.first-page {
     background: url(images/art.jpg);
     background-position: center;
     background-size: cover;
@@ -213,7 +217,7 @@ button {
 
 /*---------*/
 
-.fourth-page {
+.third-page {
     margin: 0;
     padding: 0;
     min-height: 50rem;
@@ -260,17 +264,18 @@ li {
 
 .icon-link:link, .icon-link:visited, .icon-link:hover {
     text-decoration: none;
+    text-align: center;
     color:white;
     font-size: 4rem;
 }
 
 .icon-github-circled-alt2:hover {
-	color: black;
+	color: #333;
 	transition: all .2s ease-in;
 }
 
 .icon-dropbox:hover {
-	color: red;
+	color: #0060FF;
 	transition: all .2s ease-in;
 }
 
@@ -278,8 +283,12 @@ li {
 	color: #3b5998;
 	transition: all .2s ease-in;
 }
+.icon-gmail:hover {
+	color: #c71610;
+	transition: all .2s ease-in;
+}
 
-.icon-facebook, .icon-dropbox, .icon-github-circled-alt2 {
+.icon-facebook, .icon-dropbox, .icon-github-circled-alt2, .icon-gmail{
 	transition: all .2s ease-in;
     color: white;
 }
